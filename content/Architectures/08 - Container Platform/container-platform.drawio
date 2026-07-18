@@ -1,0 +1,153 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="Kiro" version="24.0.0" type="device">
+  <diagram id="container-platform" name="Container Platform (ECS)">
+    <mxGraphModel dx="2800" dy="1600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="1500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="2800" height="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="&lt;b&gt;AWS Container Platform — ECS Fargate vs ECS on EC2&lt;/b&gt;&lt;br&gt;SAA-C03 Study Vault | Architecture 08 | v1.0" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="25" width="700" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="aws-cloud" value="AWS Cloud" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;container=1;dropTarget=1;verticalLabelPosition=top;verticalAlign=bottom;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="2680" height="1320" as="geometry" />
+        </mxCell>
+
+        <mxCell id="user" value="Clients" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#5A6C86;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.users;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="40" y="440" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="r53" value="Route 53" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.route_53;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="200" y="440" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="cf" value="CloudFront&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;CDN + HTTPS&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudfront;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="380" y="440" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="alb" value="ALB&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Path routing&lt;br&gt;Multi-AZ&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.application_load_balancer;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="580" y="440" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ecr" value="ECR&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Container images&lt;br&gt;Private registry&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="580" y="200" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="fargate-box" value="&lt;b&gt;Option A: ECS on Fargate&lt;/b&gt;&lt;br&gt;Serverless — no EC2 to manage" style="whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ED7100;dashed=1;dashPattern=8 8;rounded=1;fontSize=12;fontStyle=1;verticalAlign=top;align=center;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="800" y="160" width="840" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ecs-cluster-f" value="ECS Cluster (Fargate)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecs;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="900" y="260" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="fargate" value="Fargate Tasks&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;No EC2 nodes&lt;br&gt;Pay per task-second&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.fargate;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1100" y="260" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="fargate-spot" value="Fargate Spot&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;~70% cheaper&lt;br&gt;Interruptible&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.fargate;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1300" y="260" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="note-fargate" value="&lt;b&gt;Fargate:&lt;/b&gt; AWS manages all EC2 capacity.&lt;br&gt;You define CPU/memory per task. Pay per second.&lt;br&gt;No node patching, no capacity planning.&lt;br&gt;Best for: variable load, minimal ops overhead.&lt;br&gt;Fargate Spot: interruptible, batch/dev workloads." style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fillColor=#ffe6cc;strokeColor=#ED7100;fontSize=11;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="820" y="420" width="400" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ec2-box" value="&lt;b&gt;Option B: ECS on EC2&lt;/b&gt;&lt;br&gt;You manage EC2 worker nodes" style="whiteSpace=wrap;html=1;fillColor=none;strokeColor=#8C4FFF;dashed=1;dashPattern=8 8;rounded=1;fontSize=12;fontStyle=1;verticalAlign=top;align=center;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="800" y="800" width="840" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="ecs-cluster-e" value="ECS Cluster (EC2)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecs;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="900" y="900" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2-asg" value="EC2 ASG&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Worker nodes&lt;br&gt;ECS Agent installed&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.auto_scaling;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1100" y="900" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2-inst" value="EC2 Instances&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Reserved / Savings Plan&lt;br&gt;Custom agents OK&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1300" y="900" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="note-ec2" value="&lt;b&gt;ECS on EC2:&lt;/b&gt; You provision and manage EC2 nodes.&lt;br&gt;ECS Agent runs on each node, registers with cluster.&lt;br&gt;Use Reserved Instances / Savings Plans for cost.&lt;br&gt;Best for: steady high utilization, host-level agents,&lt;br&gt;custom instance types or GPU workloads." style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fillColor=#e8d9ff;strokeColor=#8C4FFF;fontSize=11;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="820" y="1020" width="420" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data-box" value="&lt;b&gt;Shared Data &amp;amp; Security Layer&lt;/b&gt;" style="whiteSpace=wrap;html=1;fillColor=none;strokeColor=#232F3E;dashed=1;dashPattern=8 8;rounded=1;fontSize=12;fontStyle=1;verticalAlign=top;align=center;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1760" y="160" width="860" height="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="aurora-c" value="Aurora MySQL&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Multi-AZ&lt;br&gt;Private subnets&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.aurora;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1840" y="280" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="rds-proxy-c" value="RDS Proxy&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Connection pooling&lt;br&gt;Lambda-friendly&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.rds_proxy;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2040" y="280" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="dynamo-c" value="DynamoDB&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;On-Demand&lt;br&gt;Session store&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2240" y="280" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="elasticache-c" value="ElastiCache Redis&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Session cache&lt;br&gt;Multi-AZ&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elasticache;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2440" y="280" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="secrets-c" value="Secrets Manager&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;DB credentials&lt;br&gt;Task env inject&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.secrets_manager;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1840" y="520" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="iam-role" value="IAM Task Role&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;App AWS access&lt;br&gt;(not execution role)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.role;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2040" y="520" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="exec-role" value="Task Execution Role&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Pull image + logs&lt;br&gt;(ECS infrastructure)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.role;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2240" y="520" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="cw-logs" value="CloudWatch Logs&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;awslogs driver&lt;br&gt;Container stdout&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1840" y="780" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="sqs-c" value="SQS&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Async work queue&lt;br&gt;Workers scale on depth&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2040" y="780" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-c" value="S3&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Static assets&lt;br&gt;Task artifacts&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#3F8624;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2240" y="780" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="efs-c" value="EFS&lt;br&gt;&lt;font style=&apos;font-size:10px&apos;&gt;Shared file storage&lt;br&gt;Multi-AZ NFS mount&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#3F8624;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.efs;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="2440" y="780" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note-roles" value="&lt;b&gt;Two IAM Roles — Critical Distinction:&lt;/b&gt;&lt;br&gt;&lt;b&gt;Task Execution Role:&lt;/b&gt; Used by ECS/Fargate infrastructure to:&lt;br&gt;• Pull container image from ECR&lt;br&gt;• Write logs to CloudWatch&lt;br&gt;• Fetch secrets from Secrets Manager at launch&lt;br&gt;&lt;b&gt;Task Role:&lt;/b&gt; Used by YOUR APPLICATION CODE inside the container to:&lt;br&gt;• Call S3, DynamoDB, SQS, etc.&lt;br&gt;Forgetting Task Role = app can&apos;t call AWS APIs." style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="1780" y="1020" width="820" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="user" target="r53" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="r53" target="cf" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="cf" target="alb" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="Fargate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#F5F5F5;fontSize=11;verticalAlign=bottom;" edge="1" source="alb" target="ecs-cluster-f" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="EC2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#F5F5F5;fontSize=11;verticalAlign=bottom;" edge="1" source="alb" target="ecs-cluster-e" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="ecs-cluster-f" target="fargate" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="fargate" target="fargate-spot" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="ecs-cluster-e" target="ec2-asg" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="ec2-asg" target="ec2-inst" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="Pull image" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#F5F5F5;fontSize=11;" edge="1" source="ecr" target="fargate" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="fargate" target="aurora-c" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="ec2-inst" target="aurora-c" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="aurora-c" target="rds-proxy-c" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="fargate" target="cw-logs" parent="aws-cloud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

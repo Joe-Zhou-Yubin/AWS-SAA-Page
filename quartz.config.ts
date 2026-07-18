@@ -8,16 +8,16 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
-    pageTitleSuffix: "",
+    pageTitle: "AWS SAA-C03 Notes",
+    pageTitleSuffix: " | AWS Notes",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "Joe-Zhou-Yubin.github.io/AWS-SAA-Page",
+    ignorePatterns: ["private", "templates", ".obsidian", "Flashcards", "Quizzes", "Resources"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
